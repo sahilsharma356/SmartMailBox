@@ -2,26 +2,22 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema; 
 
-const deliveredItems = new Schema ([
+const deliveredItems = new Schema (
     {
-        delivered: {
-            type: Boolean
-        }, 
-
         time: {
             type: String
         },
 
         weight: {
-            type: String
+            type: Number
         },
 
        barcode: {
-           type: String
+           type: Number
        },
     }
-]);
+);
 
-const Delivered = mongoose.model("DeliveredItems", deliveredItems);
+const deliveredItem = mongoose.model("DeliveredItems", deliveredItems, "DeliveredItems");
 
-module.exports = Delivered;
+module.exports = deliveredItem;

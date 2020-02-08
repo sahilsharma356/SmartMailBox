@@ -1,7 +1,7 @@
 const router = require("express").Router(); 
 
-let OrderedItems = require("../models/ordered.data.model");
-let DeliveredItems = require("../models/delivered.data.model");
+let OrderedItems = require("../models/ordered.data.model.js");
+let DeliveredItems = require("../models/delivered.data.model.js");
 
 // app
 router.get("/getOrders", (req, res) => {
@@ -20,14 +20,14 @@ router.get("/getDelivered", (req, res) => {
 router.post("/addOrders", (req, res) => {
     let delivered = req.body.delivered; 
     let time = req.body.time; 
-    let weight = req.body.weight; 
+    let weight = req.body.weight;
     let barcode = req.body.barcode;
 
     let newOrderedData = new OrderedItems({
         delivered,
         time,
         weight,
-        barcode
+        barcode,
     }); 
 
     newOrderedData

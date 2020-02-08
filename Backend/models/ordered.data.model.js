@@ -2,26 +2,23 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema; 
 
-const orderedItems = new Schema ([ 
+const orderedItems = new Schema ( 
     {
-        delivered: {
-            type: Boolean
-        }, 
-
         time: {
             type: String
         },
 
         weight: {
-            type: String
+            type: Number
         },
 
-       barcode: {
-           type: String
-       },
+        barcode: {
+            type: Number
+        }
+        
     }
-]);
+);
 
-const Ordered = mongoose.model("OrderedItems", orderedItems);
+const OrderedItems = mongoose.model("OrderedItems", orderedItems, "OrderedItems");
 
-module.exports = Ordered;
+module.exports = OrderedItems;
