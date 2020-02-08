@@ -13,7 +13,7 @@ app.use(cos());
 app.use(bodyParser.urlencoded(( extended: false)));
 app.use(bodyParser.json);
 
-const dbRoute = "mongodb+srv://shly01037@gmail.com:erICSSONE0011//@cluster0-jqcgs.mongodb.net/test?retryWrites=true&w=majority"; // from CONNECT
+const dbRoute = "mongodb+srv://shly01037@gmail.com:erICSSON0011//@cluster0-jqcgs.mongodb.net/test?retryWrites=true&w=majority"; // from CONNECT
 
 mongoose.connect(dbRoute, {useNewUrlParser: true});
 
