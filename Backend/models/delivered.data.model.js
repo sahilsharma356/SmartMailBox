@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema; 
 
-const deliveredItems = new Schema ([ 
+const deliveredItems = new Schema ([
     {
         delivered: {
             type: Boolean
@@ -13,15 +13,15 @@ const deliveredItems = new Schema ([
         },
 
         weight: {
-            type: Double
+            type: String
         },
 
        barcode: {
-           type: Integer
+           type: String
        },
     }
 ]);
 
-const DeliveredItems = mongoose.model("Data", deliveredItems);
+const Delivered = mongoose.model("DeliveredItems", deliveredItems);
 
-module.exports = DeliveredItems;
+module.exports = Delivered;

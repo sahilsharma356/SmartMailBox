@@ -7,13 +7,13 @@ const logger = require("morgan"); // debugger
 
 const API_PORT = 5100; 
 const app = express(); // instantiate express
-app.use(cos());
+app.use(cors());
 
 // bodyParser: json parsing library
-app.use(bodyParser.urlencoded(( extended: false)));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json);
 
-const dbRoute = "mongodb+srv://shly01037@gmail.com:erICSSON0011//@cluster0-jqcgs.mongodb.net/test?retryWrites=true&w=majority"; // from CONNECT
+const dbRoute = "mongodb+srv://shly:ssyy7713@cluster0-jqcgs.mongodb.net/test?retryWrites=true&w=majority"; // from CONNECT
 
 mongoose.connect(dbRoute, {useNewUrlParser: true});
 

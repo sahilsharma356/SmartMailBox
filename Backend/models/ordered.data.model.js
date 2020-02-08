@@ -13,15 +13,15 @@ const orderedItems = new Schema ([
         },
 
         weight: {
-            type: Double
+            type: String
         },
 
        barcode: {
-           type: Integer
+           type: String
        },
     }
 ]);
 
-const OrderedItems = mongoose.model("Data", orderedItems);
+const Ordered = mongoose.model("OrderedItems", orderedItems);
 
-module.exports = OrderedItems;
+module.exports = Ordered;
