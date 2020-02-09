@@ -6,7 +6,6 @@ let GoodCustomers = require("../models/confirmed.customers.models.js");
 
 // app
 router.get("/getOrders", (req, res) => {
-    console.log("!!!!!"); 
     OrderedItems.find()
         .then(data => res.json(data))
         .catch(err => res.status(400).json("Error: " + err));
