@@ -26,5 +26,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error: "));
 const dataRouter = require("./routes/data");
 app.use("/data", dataRouter);
 
+
 // launch backend on API_PORT
 app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
+
