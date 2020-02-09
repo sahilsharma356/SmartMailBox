@@ -2,7 +2,7 @@
   "name": "smartmailbox",
   "version": "1.0.0",
   "description": "A smart mailbox",
-  "main": "app.js",
+  "main": "node app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1"
+  },
+  "engines": {
+    "node": "12.15.0",
+    "npm": "6.13.4"
   }
 }

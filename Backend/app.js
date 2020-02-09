@@ -4,8 +4,6 @@ let cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan"); // debugger
 
-
-const API_PORT = 5100; 
 const app = express(); // instantiate express
 app.use(cors());
 
@@ -26,5 +24,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error: "));
 const dataRouter = require("./routes/data");
 app.use("/data", dataRouter);
 
+
 // launch backend on API_PORT
-app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
