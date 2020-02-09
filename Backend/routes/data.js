@@ -1,0 +1,67 @@
+const router = require("express").Router(); 
+
+let OrderedItems = require("../models/ordered.data.model.js");
+let DeliveredItems = require("../models/delivered.data.model.js");
+
+// app
+router.get("/getOrders", (req, res) => {
+    OrderedItems.find()
+        .then(data => res.json(data))
+        .catch(err => res.status(400).json("Error: " + err));
+});
+
+router.get("/getDelivered", (req, res) => {
+    DeliveredItems.find()
+        .then(data => res.json(data))
+        .catch(err => res.status(400).json("Error: " + err));
+});
+
+// rasp pi
+router.post("/addOrders", (req, res) => {
+    let time = req.body.time; 
+    let weight = req.body.weight;
+    let barcode = req.body.barcode;
+
+    let newOrderedData = new OrderedItems({
+        time,
+        weight,
+        barcode,
+    }); 
+
+    newOrderedData
+        .save()
+        .then(() => {
+            res.status(200).json({data: "Data was added successfully"}); 
+        })
+        .catch(err => {
+            res.status(400).send("New data was not successfully added"); 
+        }); 
+});
+
+router.post("/addDelivered", (req, res) => {
+    let time = req.body.time; 
+    let weight = req.body.weight; 
+    let barcode = req.body.barcode;
+
+    let newDeliveredData = new DeliveredItems({
+        time,
+        weight,
+        barcode
+    });
+
+    // Remove the delivered item once it has been delivered
+    OrderedItems.deleteOne({ barcode: barcode }, function (err) {
+        if (err) return handleError(err);
+    });
+
+    newDeliveredData
+        .save()
+        .then(() => {
+            res.status(200).json({data: "Data was added successfully"}); 
+        })
+        .catch(err => {
+            res.status(400).send("New data was not successfully added"); 
+        }); 
+});
+
+module.exports = router;
