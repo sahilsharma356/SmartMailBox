@@ -29,4 +29,4 @@ app.use("/data", dataRouter);
 
 // launch backend on API_PORT
 //app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 5000);
