@@ -16,6 +16,9 @@ const orderedItems = new Schema (
             type: Number
         }
         
+    }, 
+    {
+        versionKey: false // avoids adding the version key field
     }
 );
 

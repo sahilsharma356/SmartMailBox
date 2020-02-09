@@ -18,13 +18,11 @@ router.get("/getDelivered", (req, res) => {
 
 // rasp pi
 router.post("/addOrders", (req, res) => {
-    let delivered = req.body.delivered; 
     let time = req.body.time; 
     let weight = req.body.weight;
     let barcode = req.body.barcode;
 
     let newOrderedData = new OrderedItems({
-        delivered,
         time,
         weight,
         barcode,
@@ -41,17 +39,20 @@ router.post("/addOrders", (req, res) => {
 });
 
 router.post("/addDelivered", (req, res) => {
-    let delivered = req.body.delivered; 
     let time = req.body.time; 
     let weight = req.body.weight; 
     let barcode = req.body.barcode;
 
     let newDeliveredData = new DeliveredItems({
-        delivered,
         time,
         weight,
         barcode
-    }); 
+    });
+
+    // Remove the delivered item once it has been delivered
+    OrderedItems.deleteOne({ barcode: barcode }, function (err) {
+        if (err) return handleError(err);
+    });
 
     newDeliveredData
         .save()

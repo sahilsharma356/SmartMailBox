@@ -15,6 +15,9 @@ const deliveredItems = new Schema (
        barcode: {
            type: Number
        },
+    },
+    {
+        versionKey: false
     }
 );
 
