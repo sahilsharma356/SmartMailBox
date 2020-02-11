@@ -2,8 +2,9 @@
   "name": "smartmailbox",
   "version": "1.0.0",
   "description": "A smart mailbox",
-  "main": "node app.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "node": "12.15.0",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1"
   },
