@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const orderedItems = new Schema ( 
     {
+        name: {
+            type: String
+        },
         time: {
             type: String
         },

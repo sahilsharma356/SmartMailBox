@@ -19,11 +19,13 @@ router.get("/getDelivered", (req, res) => {
 
 // order by customer
 router.post("/addOrders", (req, res) => {
+    let name = req.body.name; 
     let time = req.body.time; 
     let weight = req.body.weight;
     let barcode = req.body.barcode;
 
     let newOrderedData = new OrderedItems({
+        name,
         time,
         weight,
         barcode,
@@ -41,11 +43,13 @@ router.post("/addOrders", (req, res) => {
 
 // order delivered to consumer
 router.post("/addDelivered", (req, res) => {
+    let name = req.body.name; 
     let time = req.body.time; 
     let weight = req.body.weight; 
     let barcode = req.body.barcode;
 
     let newDeliveredData = new DeliveredItems({
+        name,
         time,
         weight,
         barcode
